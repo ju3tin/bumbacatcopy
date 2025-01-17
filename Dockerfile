@@ -2,9 +2,9 @@ FROM node:16-slim
 
 # Install required dependencies including Python
 RUN apt-get update && apt-get install -y \
-  build-essential python3 make \
-  python3 \
   build-essential \
+  python3 \
+  make \
   curl \
   wget \
   libnss3 \
