@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
   --no-install-recommends
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /src
 
 # Copy package.json and install dependencies
 COPY package*.json ./
