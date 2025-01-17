@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "api/playwright.js": {
+        "runtime": "nodejs16.x"
+      }
+    }
+  }
