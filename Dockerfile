@@ -1,4 +1,4 @@
-FROM node:16-slim
+FROM node:16
 
 # Install required dependencies including Python
 RUN apt-get update && apt-get install -y \
@@ -16,14 +16,16 @@ RUN apt-get update && apt-get install -y \
   libxcomposite1 \
   libxdamage1 \
   libxrandr2 \
-  --no-install-recommends
+  --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /src
 
 # Copy package.json and install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install --build-from-source=false
+
 
 # Copy the rest of your application files
 COPY . .
