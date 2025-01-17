@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:20-bullseye
 
 # Install required build dependencies for building native modules
 RUN apt-get update -y && \
