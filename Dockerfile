@@ -1,7 +1,8 @@
 FROM node:16
 
 # Install required dependencies
-RUN apt-get update -y && \
+RUN apt-get update -y -o Debug::pkgProblemResolver=true && \
+    apt-get update -y && \
     apt-get install -y \
     build-essential \
     python3 \
