@@ -6,6 +6,8 @@ RUN apt-get update -y -o Debug::pkgProblemResolver=true && \
     apt-get install -y \
     build-essential \
     python3 \
+    lsb-release \
+    && apt-get clean \
     g++-10 \
     && rm -rf /var/lib/apt/lists/*
 
