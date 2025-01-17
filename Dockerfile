@@ -1,11 +1,13 @@
 FROM node:16
 
-# Install build dependencies including updated g++ and make
-RUN apt-get update && apt-get install -y \
+# Install build dependencies
+RUN apt-get update -y && \
+    apt-get install -y \
     build-essential \
     python3 \
-    g++-10 \
-    && rm -rf /var/lib/apt/lists/*
+    g++ \
+    && rm -rf /var/lib/apt/lists/* \
+    || { echo 'apt-get install failed'; exit 1; }
 
 # Set working directory
 WORKDIR /src
