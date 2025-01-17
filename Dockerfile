@@ -1,10 +1,11 @@
-# Use a Node.js base image
 FROM node:16-slim
 
-# Install dependencies for Playwright and Chromium
+# Install required dependencies including Python
 RUN apt-get update && apt-get install -y \
-  wget \
+  python3 \
+  build-essential \
   curl \
+  wget \
   libnss3 \
   libgconf-2-4 \
   libatk-bridge2.0-0 \
@@ -19,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /app
 
-# Copy the package.json and install dependencies
+# Copy package.json and install dependencies
 COPY package*.json ./
 RUN npm install
 
