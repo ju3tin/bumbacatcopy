@@ -80,7 +80,9 @@ export async function loadCharacters(
   if (characterPaths?.length > 0) {
     for (const path of characterPaths) {
       try {
-        const character = JSON.parse(fs.readFileSync(path, "utf8"));
+        const fileContents = fs.readFileSync(path, "utf8");
+        console.log(`Contents of ${path}:`, fileContents);
+        const character = JSON.parse(fileContents);
 
         validateCharacterConfig(character);
 
